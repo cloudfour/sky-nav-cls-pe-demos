@@ -1,0 +1,21 @@
+{
+  "name": "cls-progressive-enhancement-burger-menu",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.2",
+    "prettier": "2.7.1",
+    "sass": "^1.54.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0"
+  },
+  "dependencies": {
+    "@cloudfour/patterns": "^12.3.0"
+  }
+}
