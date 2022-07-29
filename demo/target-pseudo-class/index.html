@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Synchronous inline script demo</title>
+		<title>:target pseudo-class demo</title>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/cloud-four.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
 			href="/node_modules/@cloudfour/patterns/dist/standalone.min.css"
 		/>
 	</head>
-	<body class="o-page" data-demo="synchronous-inline-script">
+	<body class="o-page" data-demo="target-pseudo-class">
 		<div class="o-page__header t-dark">
 			<div class="c-sky-nav js-sky-nav" data-state="is-default">
 				<a class="c-button c-sky-nav__skip" href="#main">
@@ -92,18 +92,13 @@
 				</header>
 			</div>
 			<script>
-				// const skyNav = document.querySelector('.js-sky-nav');
-				// skyNav.classList.remove('no-js'); // 1
-				// skyNav.classList.add('is-loading'); // 2
-
 				document.querySelector('.js-sky-nav').dataset.state = 'is-loading';
 			</script>
 		</div>
 		<main id="main" class="o-page__content">
 			<div class="o-container o-container--pad">
 				<div class="o-container__content o-rhythm">
-					<h1>Synchronous inline script demo</h1>
-					<!-- <p>This demo implements the synchronous inline script technique.</p> -->
+					<h1><code>:target</code> pseudo-class demo</h1>
 					<p>
 						Read Cloud Four's <a href="#todo">"TITLE" article</a> to get the
 						juicy details.
