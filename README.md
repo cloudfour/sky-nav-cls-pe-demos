@@ -1,4 +1,4 @@
-# Sky Nav Cumulative Layout Shift and Progress Enhancement demos
+# Sky Nav Cumulative Layout Shift and Progressive Enhancement demos
 
 Demos for the Sky Nav Cumulative Layout Shift + Progressive Enhancement article
 
