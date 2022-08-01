@@ -21,12 +21,12 @@ $viewport-size-small-max: 39.999em;
 		/// 1. The button toggle is not needed if JS is disabled
 		/// 2. During the 'loading' and 'ready' state, show the button
 		///
-		[data-demo='synchronous-inline-script'] [data-state='is-default'] & {
+		[data-state='is-default'] & {
 			display: none; // 1
 		}
 
-		[data-demo='synchronous-inline-script'] [data-state='is-loading'] &,
-		[data-demo='synchronous-inline-script'] [data-state='is-ready'] & {
+		[data-state='is-loading'] &,
+		[data-state='is-ready'] & {
 			display: inline-flex; // 2
 		}
 	}
@@ -51,11 +51,11 @@ $viewport-size-small-max: 39.999em;
 		///    maintaining a great Cumulative Layout Shift score.
 		/// 3. Once the Sky Nav has initialized, reset its display. The Sky Nav JS takes
 		///    over and toggles the menu open/closed.
-		[data-demo='synchronous-inline-script'] [data-state='is-loading'] & {
+		[data-state='is-loading'] & {
 			display: none; // 2
 		}
-		[data-demo='synchronous-inline-script'] [data-state='is-default'] &,
-		[data-demo='synchronous-inline-script'] [data-state='is-ready'] & {
+		[data-state='is-default'] &,
+		[data-state='is-ready'] & {
 			display: block; // 1, 3
 		}
 	}

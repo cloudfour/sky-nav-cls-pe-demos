@@ -1,5 +1,4 @@
 import { initSkyNav } from './sky-nav';
-import './style.scss';
 
 console.log('Main in action');
 

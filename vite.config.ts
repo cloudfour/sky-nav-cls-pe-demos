@@ -6,11 +6,11 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
-				synchronousInlineScriptDemo: resolve(
+				'synchronous-inline-script': resolve(
 					__dirname,
 					'demo/synchronous-inline-script/index.html'
 				),
-				targetPseudoClassDemo: resolve(
+				'target-pseudo-class': resolve(
 					__dirname,
 					'demo/target-pseudo-class/index.html'
 				),

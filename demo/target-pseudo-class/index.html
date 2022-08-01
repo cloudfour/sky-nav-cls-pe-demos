@@ -9,6 +9,35 @@
 			rel="stylesheet"
 			href="/node_modules/@cloudfour/patterns/dist/standalone.min.css"
 		/>
+		<style>
+			/**
+       * The Sky Nav pattern is progressively enhanced; no JS is assumed by default. 
+       * This means the menu is rendered open if JS is disabled.
+       */
+
+			/* $viewport-size-small-max: 39.999em; */
+
+			/* Override @cloudfour/patterns menu toggle styles for demo purposes */
+			@media (max-width: 39.999em) {
+				.c-sky-nav__menu-toggle {
+					/* border: 1px solid orange; */
+				}
+			}
+
+			/**
+ * Override @cloudfour/patterns menu styles for demo purposes 
+ * 
+ * Demo: :target pseudo-class
+ */
+			@media (max-width: 39.999em) {
+				[data-state='is-default'] .c-sky-nav__menu-items {
+					display: none;
+				}
+				[data-state='is-default'] .c-sky-nav__menu-items:target {
+					display: block;
+				}
+			}
+		</style>
 	</head>
 	<body class="o-page" data-demo="target-pseudo-class">
 		<div class="o-page__header t-dark">
@@ -48,15 +77,16 @@
 					</div>
 					<nav class="c-sky-nav__menu" aria-labelledby="menu-label">
 						<h2 id="menu-label" class="u-hidden-visually">Main Menu</h2>
-						<button
+						<a
+							href="#sky-nav"
 							class="c-button c-sky-nav__menu-toggle js-sky-nav-menu-toggle"
 						>
 							<span class="c-button__content">
 								<span class="u-hidden-visually">Toggle Main</span>
 								Menu
 							</span>
-						</button>
-						<ul class="c-sky-nav__menu-items" role="list">
+						</a>
+						<ul id="sky-nav" class="c-sky-nav__menu-items" role="list">
 							<li class="c-sky-nav__menu-item">
 								<a class="c-sky-nav__menu-action" href="#">
 									<span class="c-sky-nav__menu-label"> What We Do </span>
@@ -91,9 +121,6 @@
 					</nav>
 				</header>
 			</div>
-			<script>
-				// document.querySelector('.js-sky-nav').dataset.state = 'is-loading';
-			</script>
 		</div>
 		<main id="main" class="o-page__content">
 			<div class="o-container o-container--pad">
@@ -134,6 +161,6 @@
 				</div>
 			</div>
 		</main>
-		<script type="module" src="/src/main.ts"></script>
+		<script type="module" src="/src/target-pseudo-class.ts"></script>
 	</body>
 </html>

@@ -23,7 +23,10 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
 		'(prefers-reduced-motion: reduce)'
 	);
 
-	if (document.body.dataset.demo === 'synchronous-inline-script') {
+	if (
+		document.body.dataset.demo === 'synchronous-inline-script' ||
+		document.body.dataset.demo === 'target-pseudo-class'
+	) {
 		// The Sky Nav component has inline synchronous JS logic to add an `is-loading`
 		// state to remove the layout shift at smaller viewports. That state no longer
 		// applies at this point since the Sky Nav JS has loaded & is ready to take over.
@@ -51,7 +54,10 @@ export const initSkyNav = (navButton: HTMLButtonElement) => {
 	 * Toggle Menu State (expanded/closed)
 	 * Sets aria-expanded & hidden attributes to show or hide the menu.
 	 */
-	const toggle = () => {
+	const toggle = (event: Event) => {
+		if (document.body.dataset.demo === 'target-pseudo-class') {
+			event?.preventDefault();
+		}
 		const isExpanded = navButton.getAttribute('aria-expanded') === 'true';
 
 		navButton.setAttribute('aria-expanded', String(!isExpanded));
