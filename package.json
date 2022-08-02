@@ -16,6 +16,7 @@
     "vite": "^3.0.0"
   },
   "dependencies": {
-    "@cloudfour/patterns": "^12.3.0"
+    "@cloudfour/patterns": "^12.3.0",
+    "@zachleat/details-utils": "^2.0.2"
   }
 }

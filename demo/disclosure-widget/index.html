@@ -48,94 +48,71 @@
 					</div>
 					<nav class="c-sky-nav__menu" aria-labelledby="menu-label">
 						<h2 id="menu-label" class="u-hidden-visually">Main Menu</h2>
-						<details>
-							<!-- <button
-							class="c-button c-sky-nav__menu-toggle js-sky-nav-menu-toggle"
-						>
-							<span class="c-button__content">
-								<span class="u-hidden-visually">Toggle Main</span>
-								Menu
-							</span>
-						</button> -->
-							<summary
-								class="c-button c-sky-nav__menu-toggle js-sky-nav-menu-toggle"
-							>
-								<span class="c-button__content">
-									<span class="u-hidden-visually">Main</span>
-									Menu
-								</span>
-							</summary>
-							<ul id="sky-nav" class="c-sky-nav__menu-items" role="list">
-								<li class="c-sky-nav__menu-item">
-									<a class="c-sky-nav__menu-action" href="#">
-										<span class="c-sky-nav__menu-label"> What We Do </span>
-									</a>
-								</li>
-								<li class="c-sky-nav__menu-item">
-									<a class="c-sky-nav__menu-action" href="#">
-										<span class="c-sky-nav__menu-label"> Our Approach </span>
-									</a>
-								</li>
-								<li class="c-sky-nav__menu-item">
-									<a class="c-sky-nav__menu-action" href="#">
-										<span class="c-sky-nav__menu-label"> Our Work </span>
-									</a>
-								</li>
-								<li class="c-sky-nav__menu-item">
-									<a class="c-sky-nav__menu-action" href="#">
-										<span class="c-sky-nav__menu-label"> Articles </span>
-									</a>
-								</li>
-								<li class="c-sky-nav__menu-item">
-									<a class="c-sky-nav__menu-action" href="#">
-										<span class="c-sky-nav__menu-label"> Speaking </span>
-									</a>
-								</li>
-								<li class="c-sky-nav__menu-item">
-									<a class="c-sky-nav__menu-action" href="#">
-										<span class="c-sky-nav__menu-label"> Team </span>
-									</a>
-								</li>
-							</ul>
-						</details>
+						<details-utils animate force-open="(min-width: 40em)" force-restore>
+							<details>
+								<summary
+									class="c-button c-sky-nav__menu-toggle js-sky-nav-menu-toggle"
+								>
+									<span class="c-button__content">
+										<span class="u-hidden-visually">Main</span>
+										Menu
+									</span>
+								</summary>
+								<ul id="sky-nav" class="c-sky-nav__menu-items" role="list">
+									<li class="c-sky-nav__menu-item">
+										<a class="c-sky-nav__menu-action" href="#">
+											<span class="c-sky-nav__menu-label"> What We Do </span>
+										</a>
+									</li>
+									<li class="c-sky-nav__menu-item">
+										<a class="c-sky-nav__menu-action" href="#">
+											<span class="c-sky-nav__menu-label"> Our Approach </span>
+										</a>
+									</li>
+									<li class="c-sky-nav__menu-item">
+										<a class="c-sky-nav__menu-action" href="#">
+											<span class="c-sky-nav__menu-label"> Our Work </span>
+										</a>
+									</li>
+									<li class="c-sky-nav__menu-item">
+										<a class="c-sky-nav__menu-action" href="#">
+											<span class="c-sky-nav__menu-label"> Articles </span>
+										</a>
+									</li>
+									<li class="c-sky-nav__menu-item">
+										<a class="c-sky-nav__menu-action" href="#">
+											<span class="c-sky-nav__menu-label"> Speaking </span>
+										</a>
+									</li>
+									<li class="c-sky-nav__menu-item">
+										<a class="c-sky-nav__menu-action" href="#">
+											<span class="c-sky-nav__menu-label"> Team </span>
+										</a>
+									</li>
+								</ul>
+							</details>
+						</details-utils>
 					</nav>
 				</header>
 			</div>
 			<style>
-				/**
-       * The Sky Nav pattern is progressively enhanced; no JS is assumed by default. 
-       * This means the menu is rendered open if JS is disabled.
-       */
+				/* The design doesn't call for the arrow marker rendered in Safari */
+				details > summary::-webkit-details-marker {
+					display: none; /* 1 */
+				}
 
-				/**
- * Override @cloudfour/patterns menu styles for demo purposes 
- * 
- * Demo: :target pseudo-class
- */
-				@media (max-width: 39.999em) {
-					[data-state='default'] .c-sky-nav__menu-items {
-						display: none;
+				@media (min-width: 40em) {
+					details-utils,
+					details {
+						display: contents;
 					}
 				}
 			</style>
-			<noscript>
-				<style>
-					@media (max-width: 39.999em) {
-						[data-state='default'] .c-sky-nav__menu-items {
-							display: block;
-						}
-
-						[data-state='default'] .c-sky-nav__menu-toggle {
-							display: none;
-						}
-					}
-				</style>
-			</noscript>
 		</div>
 		<main id="main" class="o-page__content">
 			<div class="o-container o-container--pad">
 				<div class="o-container__content o-rhythm">
-					<h1><code>&lt;noscript&gt;</code> tag demo</h1>
+					<h1>Disclosure widget demo</h1>
 					<p>
 						Read Cloud Four's <a href="#todo">"TITLE" article</a> for demo
 						details.
@@ -171,6 +148,9 @@
 				</div>
 			</div>
 		</main>
-		<script type="module" src="/src/main.ts"></script>
+		<script
+			type="module"
+			src="/node_modules/@zachleat/details-utils/details-utils.js"
+		></script>
 	</body>
 </html>
