@@ -9,11 +9,25 @@
  * screens. Returns an object containing a `destroy()` method to remove the
  * event listener.
  *
- * @param navButton - the toggle button for the navigation
+ * @param toggleEl - the toggle button for the navigation
  */
-export const initSkyNav = (navButton: HTMLButtonElement) => {
+export const initSkyNav = (toggleEl: HTMLButtonElement) => {
 	const DISABLE_ANIMATION = false;
 	console.log('initSkyNav in action');
+
+	let navButton = toggleEl;
+
+	if (document.body.dataset.demo === 'target-pseudo-class') {
+		// @todo Add comment
+		// Aria-expanded is ignored on anchor
+		const button = document.createElement('button');
+		toggleEl.classList.forEach((toggleElCssClass) =>
+			button.classList.add(toggleElCssClass)
+		);
+		button.innerHTML = toggleEl.innerHTML;
+		toggleEl.replaceWith(button);
+		navButton = button;
+	}
 
 	const menu = navButton.nextElementSibling as HTMLElement;
 	const navWrapper = navButton.closest('.js-sky-nav') as HTMLElement;
