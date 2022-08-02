@@ -14,19 +14,19 @@ $viewport-size-small-max: 39.999em;
 		/// Demo: Synchronous Inline Script
 		///
 		/// For this demo, the Sky Nav pattern has 3 states:
-		/// - 'is-default': No JS
-		/// - 'is-loading': JS enabled, Sky Nav JS hasn’t loaded and initialized
-		/// - 'is-ready': JS enabled, Sky Nav JS loaded and initialized
+		/// - 'default': No JS
+		/// - 'loading': JS enabled, Sky Nav JS hasn’t loaded and initialized
+		/// - 'ready': JS enabled, Sky Nav JS loaded and initialized
 		///
 		/// 1. The button toggle is not needed if JS is disabled
 		/// 2. During the 'loading' and 'ready' state, show the button
 		///
-		[data-state='is-default'] & {
+		[data-state='default'] & {
 			display: none; // 1
 		}
 
-		[data-state='is-loading'] &,
-		[data-state='is-ready'] & {
+		[data-state='loading'] &,
+		[data-state='ready'] & {
 			display: inline-flex; // 2
 		}
 	}
@@ -41,9 +41,9 @@ $viewport-size-small-max: 39.999em;
 		/// Demo: Synchronous Inline Script
 		///
 		/// For this demo, the Sky Nav pattern has 3 states:
-		/// - 'is-default': No JS
-		/// - 'is-loading': JS enabled, Sky Nav JS hasn’t loaded and initialized
-		/// - 'is-ready': JS enabled, Sky Nav JS loaded and initialized
+		/// - 'default': No JS
+		/// - 'loading': JS enabled, Sky Nav JS hasn’t loaded and initialized
+		/// - 'ready': JS enabled, Sky Nav JS loaded and initialized
 		///
 		///
 		/// 1. Make sure the menu is accessible when JS is disabled
@@ -51,11 +51,11 @@ $viewport-size-small-max: 39.999em;
 		///    maintaining a great Cumulative Layout Shift score.
 		/// 3. Once the Sky Nav has initialized, reset its display. The Sky Nav JS takes
 		///    over and toggles the menu open/closed.
-		[data-state='is-loading'] & {
+		[data-state='loading'] & {
 			display: none; // 2
 		}
-		[data-state='is-default'] &,
-		[data-state='is-ready'] & {
+		[data-state='default'] &,
+		[data-state='ready'] & {
 			display: block; // 1, 3
 		}
 	}

@@ -37,10 +37,10 @@ export const initSkyNav = (toggleEl: HTMLButtonElement) => {
 		'(prefers-reduced-motion: reduce)'
 	);
 
-	// The Sky Nav component has inline synchronous JS logic to add an `is-loading`
+	// The Sky Nav component has inline synchronous JS logic to add an `loading`
 	// state to remove the layout shift at smaller viewports. That state no longer
 	// applies at this point since the Sky Nav JS has loaded & is ready to take over.
-	navWrapper.dataset.state = 'is-ready';
+	navWrapper.dataset.state = 'ready';
 
 	/**
 	 * Update Menu Layout
