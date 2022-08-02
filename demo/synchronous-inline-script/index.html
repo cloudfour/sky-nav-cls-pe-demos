@@ -9,6 +9,68 @@
 			rel="stylesheet"
 			href="/node_modules/@cloudfour/patterns/dist/standalone.min.css"
 		/>
+		<style>
+			/*  */
+			/* The Sky Nav pattern is progressively enhanced; no JS is assumed by default. */
+			/* This means the menu is rendered open if JS is disabled. */
+			/*  */
+
+			/* $viewport-size-small-max: 39.999em; */
+
+			/*  */
+			/* Override @cloudfour/patterns menu toggle styles for demo purposes */
+			/*  */
+			@media (max-width: 39.999em) {
+				[data-state='default'] .c-sky-nav__menu-toggle {
+					/*  */
+					/* Demo: Synchronous Inline Script */
+					/*  */
+					/* For this demo, the Sky Nav pattern has 3 states: */
+					/* - 'default': No JS */
+					/* - 'loading': JS enabled, Sky Nav JS hasn’t loaded and initialized */
+					/* - 'ready': JS enabled, Sky Nav JS loaded and initialized */
+					/*  */
+					/* 1. The button toggle is not needed if JS is disabled */
+					/* 2. During the 'loading' and 'ready' state, show the button */
+					/*  */
+
+					display: none; /* 1 */
+				}
+				[data-state='loading'] .c-sky-nav__menu-toggle,
+				[data-state='ready'] .c-sky-nav__menu-toggle {
+					display: inline-flex; /* 2 */
+				}
+			}
+
+			/*  */
+			/* Override @cloudfour/patterns menu styles for demo purposes */
+			/*  */
+			@media (max-width: 39.999em) {
+				/* .c-sky-nav__menu-items { */
+				/*  */
+				/* Demo: Synchronous Inline Script */
+				/*  */
+				/* For this demo, the Sky Nav pattern has 3 states: */
+				/* - 'default': No JS */
+				/* - 'loading': JS enabled, Sky Nav JS hasn’t loaded and initialized */
+				/* - 'ready': JS enabled, Sky Nav JS loaded and initialized */
+				/*  */
+				/*  */
+				/* 1. Make sure the menu is accessible when JS is disabled */
+				/* 2. Keeping the menu hidden while the Sky Nav JS loads is the key to */
+				/* maintaining a great Cumulative Layout Shift score. */
+				/* 3. Once the Sky Nav has initialized, reset its display. The Sky Nav JS takes */
+				/* over and toggles the menu open/closed. */
+				[data-state='loading'] .c-sky-nav__menu-items {
+					display: none; /* 2 */
+				}
+				[data-state='default'] .c-sky-nav__menu-items,
+				[data-state='ready'] .c-sky-nav__menu-items {
+					display: block; /* 1, 3 */
+				}
+				/* } */
+			}
+		</style>
 	</head>
 	<body class="o-page" data-demo="synchronous-inline-script">
 		<div class="o-page__header t-dark">
@@ -136,6 +198,6 @@
 				</div>
 			</div>
 		</main>
-		<script type="module" src="/src/synchronous-inline-script.ts"></script>
+		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>

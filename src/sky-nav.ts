@@ -17,8 +17,8 @@ export const initSkyNav = (toggleEl: HTMLButtonElement) => {
 
 	let navButton = toggleEl;
 
+	// @todo Add comment
 	if (document.body.dataset.demo === 'target-pseudo-class') {
-		// @todo Add comment
 		// Aria-expanded is ignored on anchor
 		const button = document.createElement('button');
 		toggleEl.classList.forEach((toggleElCssClass) =>
@@ -63,10 +63,7 @@ export const initSkyNav = (toggleEl: HTMLButtonElement) => {
 	 * Toggle Menu State (expanded/closed)
 	 * Sets aria-expanded & hidden attributes to show or hide the menu.
 	 */
-	const toggle = (event: Event) => {
-		if (document.body.dataset.demo === 'target-pseudo-class') {
-			event?.preventDefault();
-		}
+	const toggle = () => {
 		const isExpanded = navButton.getAttribute('aria-expanded') === 'true';
 
 		navButton.setAttribute('aria-expanded', String(!isExpanded));
