@@ -97,22 +97,25 @@
 			</div>
 			<style>
 				/*
-				  These styles override @cloudfour/patterns for demo purposes.
-				  Normally, these styles would be in the main stylesheet and would not 
-          need to be inlined.
-			  */
+				 * These styles override @cloudfour/patterns for demo purposes.
+				 * Normally, these styles would be in the main stylesheet and would not 
+				 * need to be inlined.
+				 */
 
 				/* 
-          1. The design doesn't call for the arrow marker rendered in Safari 
-        */
+				 * 1. The design doesn't call for the arrow marker rendered in Safari 
+				 */
 				details > summary::-webkit-details-marker {
 					display: none; /* 1 */
 				}
 
+				/**
+				 * 1. At larger viewports, we don't need the details container to do anything
+				 */
 				@media (min-width: 40em) {
 					details-utils,
 					details {
-						display: contents;
+						display: contents; /* 1 */
 					}
 				}
 			</style>
