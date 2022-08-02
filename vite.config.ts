@@ -6,6 +6,10 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
+				'disclosure-widget': resolve(
+					__dirname,
+					'demo/disclosure-widget/index.html'
+				),
 				'synchronous-inline-script': resolve(
 					__dirname,
 					'demo/synchronous-inline-script/index.html'
