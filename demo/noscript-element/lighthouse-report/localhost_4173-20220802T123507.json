@@ -1,7 +1,7 @@
 {
   "lighthouseVersion": "9.6.1",
-  "requestedUrl": "http://localhost:4173/demo/noscript-tag/",
-  "finalUrl": "http://localhost:4173/demo/noscript-tag/",
+  "requestedUrl": "http://localhost:4173/demo/noscript-element/",
+  "finalUrl": "http://localhost:4173/demo/noscript-element/",
   "fetchTime": "2022-08-02T19:35:07.260Z",
   "gatherMode": "navigation",
   "runWarnings": [],
@@ -201,7 +201,7 @@
         ],
         "items": [
           {
-            "url": "http://localhost:4173/demo/noscript-tag/",
+            "url": "http://localhost:4173/demo/noscript-element/",
             "responseTime": 1.923
           }
         ],
@@ -242,7 +242,7 @@
         "chains": {
           "E69571ABF8C81A6246042D5D9304EE77": {
             "request": {
-              "url": "http://localhost:4173/demo/noscript-tag/",
+              "url": "http://localhost:4173/demo/noscript-element/",
               "startTime": 22309.839409,
               "endTime": 22309.842562,
               "responseReceivedTime": 22309.842135,
@@ -418,7 +418,7 @@
         ],
         "items": [
           {
-            "url": "http://localhost:4173/demo/noscript-tag/",
+            "url": "http://localhost:4173/demo/noscript-element/",
             "total": 91.03199999999998,
             "scripting": 6.192000000000001,
             "scriptParseCompile": 1.1440000000000001
@@ -572,7 +572,7 @@
         ],
         "items": [
           {
-            "url": "http://localhost:4173/demo/noscript-tag/",
+            "url": "http://localhost:4173/demo/noscript-element/",
             "protocol": "http/1.1",
             "startTime": 0,
             "endTime": 3.153000001475448,
@@ -1274,7 +1274,7 @@
             "totalBytes": 12650
           },
           {
-            "url": "http://localhost:4173/demo/noscript-tag/",
+            "url": "http://localhost:4173/demo/noscript-element/",
             "totalBytes": 2476
           },
           {

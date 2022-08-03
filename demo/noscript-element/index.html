@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>noscript tag demo</title>
+		<title>noscript element demo</title>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/cloud-four.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
 			href="/node_modules/@cloudfour/patterns/dist/standalone.min.css"
 		/>
 	</head>
-	<body class="o-page" data-demo="noscript-tag">
+	<body class="o-page" data-demo="noscript-element">
 		<div class="o-page__header t-dark">
 			<div class="c-sky-nav js-sky-nav" data-state="default">
 				<a class="c-button c-sky-nav__skip" href="#main">
@@ -93,30 +93,47 @@
 			</div>
 			<style>
 				/**
-       * The Sky Nav pattern is progressively enhanced; no JS is assumed by default. 
-       * This means the menu is rendered open if JS is disabled.
-       */
-
-				/**
- * Override @cloudfour/patterns menu styles for demo purposes 
- * 
- * Demo: :target pseudo-class
- */
+				 * The @cloudfour/patterns Sky Nav is progressively enhanced; no JavaScript 
+				 * is assumed by default. This means the menu is rendered open initially.
+				 * This also means a poor Cumulative Layout Shift score because once the 
+				 * JavaScript takes over to enhance the experience, the Sky Nav menu 
+				 * collapses closed causing a layout shift.
+				 * 
+				 * For this implementation, the Sky Nav has two states (via a `data-state` 
+				 * attribute on the body element):
+				 * - default: No JavaScript is available (initial render)
+				 * - ready: The Sky Nav JavaScript has initialized (Sky Nav JS updates the state)
+				 * 
+				 * For the `noscript` element technique, we inline CSS to override the
+				 * default display.
+				 *
+				 * 1. Hide the menu during the 'default' state, this solves the poor 
+				 * 		Cumulative Layout Shift score. When the Sky Nav JavaScript 
+				 * 		initializes, it updates the state to 'ready', which means this 
+				 * 		override no longer applies.
+				 */
 				@media (max-width: 39.999em) {
 					[data-state='default'] .c-sky-nav__menu-items {
-						display: none;
+						display: none; /* 1 */
 					}
 				}
 			</style>
 			<noscript>
 				<style>
+					/**
+					 * The above `display` override assumes the Sky Nav JavaScript will 
+					 * eventually initialize. In case JavaScript is not available, the code
+					 * can leverage the `noscript` element to undo the override.
+					 * 
+					 * 1. Reset `display` since JavaScript is not available
+					 * 2. Hide the menu toggle since it doesn't function
+					 */
 					@media (max-width: 39.999em) {
 						[data-state='default'] .c-sky-nav__menu-items {
-							display: block;
+							display: block; /* 1 */
 						}
-
 						[data-state='default'] .c-sky-nav__menu-toggle {
-							display: none;
+							display: none; /* 2 */
 						}
 					}
 				</style>
@@ -125,7 +142,7 @@
 		<main id="main" class="o-page__content">
 			<div class="o-container o-container--pad">
 				<div class="o-container__content o-rhythm">
-					<h1><code>&lt;noscript&gt;</code> tag demo</h1>
+					<h1><code>&lt;noscript&gt;</code> element demo</h1>
 					<p>
 						Read Cloud Four's <a href="#todo">"TITLE" article</a> for demo
 						details.
