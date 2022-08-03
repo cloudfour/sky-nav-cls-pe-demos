@@ -18,7 +18,10 @@ export default defineConfig({
 					__dirname,
 					'demo/target-pseudo-class/index.html'
 				),
-				'noscript-tag': resolve(__dirname, 'demo/noscript-tag/index.html'),
+				'noscript-element': resolve(
+					__dirname,
+					'demo/noscript-element/index.html'
+				),
 			},
 		},
 	},
