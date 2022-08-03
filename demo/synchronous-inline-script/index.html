@@ -10,65 +10,56 @@
 			href="/node_modules/@cloudfour/patterns/dist/standalone.min.css"
 		/>
 		<style>
-			/*  */
-			/* The Sky Nav pattern is progressively enhanced; no JS is assumed by default. */
-			/* This means the menu is rendered open if JS is disabled. */
-			/*  */
-
-			/* $viewport-size-small-max: 39.999em; */
-
-			/*  */
-			/* Override @cloudfour/patterns menu toggle styles for demo purposes */
-			/*  */
+			/**
+			 * The @cloudfour/patterns Sky Nav is progressively enhanced; no JavaScript 
+			 * is assumed by default. This means the menu is rendered open initially.
+			 * This also means a poor Cumulative Layout Shift score because once the 
+			 * JavaScript takes over to enhance the experience, the Sky Nav menu 
+			 * collapses closed causing a layout shift.
+			 * 
+			 * For this demo implementation, the Sky Nav has three states (via a 
+			 * `data-state` attribute on the body element):
+			 * - default: No JavaScript is available (initial render)
+			 * - loading: JavaScript enabled, Sky Nav JavaScript hasn’t initialized 
+			 *						(state is updated via inline script)
+			 * - ready: The Sky Nav JavaScript has initialized (Sky Nav JS updates the state)
+			 * 
+			 * Normally, these styles would be in the main stylesheet and would not 
+			 * need to be inlined. For the purposes of this demo, they are inlined.
+			 */
 			@media (max-width: 39.999em) {
-				[data-state='default'] .c-sky-nav__menu-toggle {
-					/*  */
-					/* Demo: Synchronous Inline Script */
-					/*  */
-					/* For this demo, the Sky Nav pattern has 3 states: */
-					/* - 'default': No JS */
-					/* - 'loading': JS enabled, Sky Nav JS hasn’t loaded and initialized */
-					/* - 'ready': JS enabled, Sky Nav JS loaded and initialized */
-					/*  */
-					/* 1. The button toggle is not needed if JS is disabled */
-					/* 2. During the 'loading' and 'ready' state, show the button */
-					/*  */
+				/**
+				 * Manage the display of the menu
+				 * 
+				 * 1. Make sure the menu is accessible when JS is disabled.
+				 * 2. Hide the menu during the 'loading' state, this solves the poor 
+				 * 		Cumulative Layout Shift score.
+				 * 3. The Sky Nav JavaScript has initialized, reset the `display`. The Sky
+				 * 		Nav JavaScript now toggles the menu open/closed.
+				 */
+				[data-state='default'] .c-sky-nav__menu-items {
+					display: block; /* 1 */
+				}
+				[data-state='loading'] .c-sky-nav__menu-items {
+					display: none; /* 2 */
+				}
+				[data-state='ready'] .c-sky-nav__menu-items {
+					display: block; /* 3 */
+				}
 
+				/**
+				 * Manage the display of the menu toggle
+				 * 
+				 * 1. The button toggle is not needed if JS is disabled.
+				 * 2. During the 'loading' and 'ready' state, show the button
+				 */
+				[data-state='default'] .c-sky-nav__menu-toggle {
 					display: none; /* 1 */
 				}
 				[data-state='loading'] .c-sky-nav__menu-toggle,
 				[data-state='ready'] .c-sky-nav__menu-toggle {
 					display: inline-flex; /* 2 */
 				}
-			}
-
-			/*  */
-			/* Override @cloudfour/patterns menu styles for demo purposes */
-			/*  */
-			@media (max-width: 39.999em) {
-				/* .c-sky-nav__menu-items { */
-				/*  */
-				/* Demo: Synchronous Inline Script */
-				/*  */
-				/* For this demo, the Sky Nav pattern has 3 states: */
-				/* - 'default': No JS */
-				/* - 'loading': JS enabled, Sky Nav JS hasn’t loaded and initialized */
-				/* - 'ready': JS enabled, Sky Nav JS loaded and initialized */
-				/*  */
-				/*  */
-				/* 1. Make sure the menu is accessible when JS is disabled */
-				/* 2. Keeping the menu hidden while the Sky Nav JS loads is the key to */
-				/* maintaining a great Cumulative Layout Shift score. */
-				/* 3. Once the Sky Nav has initialized, reset its display. The Sky Nav JS takes */
-				/* over and toggles the menu open/closed. */
-				[data-state='loading'] .c-sky-nav__menu-items {
-					display: none; /* 2 */
-				}
-				[data-state='default'] .c-sky-nav__menu-items,
-				[data-state='ready'] .c-sky-nav__menu-items {
-					display: block; /* 1, 3 */
-				}
-				/* } */
 			}
 		</style>
 	</head>
@@ -154,7 +145,9 @@
 				</header>
 			</div>
 			<script>
-				// @todo Add comment
+				// This line of JavaScript is the key to removing the layout shift for
+				// this technique. The CSS can hide the menu immediately removing the
+				// layout shift using the updated state value as the hook.
 				document.querySelector('.js-sky-nav').dataset.state = 'loading';
 			</script>
 		</div>
@@ -162,7 +155,6 @@
 			<div class="o-container o-container--pad">
 				<div class="o-container__content o-rhythm">
 					<h1>Synchronous inline script demo</h1>
-					<!-- <p>This demo implements the synchronous inline script technique.</p> -->
 					<p>
 						Read Cloud Four's <a href="#todo">"TITLE" article</a> for demo
 						details.
