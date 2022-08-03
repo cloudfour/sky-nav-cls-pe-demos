@@ -10,32 +10,34 @@
 			href="/node_modules/@cloudfour/patterns/dist/standalone.min.css"
 		/>
 		<style>
-			/* @todo Add comment as to why this is inlined (doesn't have to be) */
 			/**
-       * The Sky Nav pattern is progressively enhanced; no JS is assumed by default. 
-       * This means the menu is rendered open if JS is disabled.
-       */
-
-			/* $viewport-size-small-max: 39.999em; */
-
-			/* Override @cloudfour/patterns menu toggle styles for demo purposes */
-			@media (max-width: 39.999em) {
-				.c-sky-nav__menu-toggle {
-					/* border: 1px solid orange; */
-				}
-			}
-
-			/**
- * Override @cloudfour/patterns menu styles for demo purposes 
- * 
- * Demo: :target pseudo-class
- */
+			 * The @cloudfour/patterns Sky Nav is progressively enhanced; no JavaScript 
+			 * is assumed by default. This means the menu is rendered open initially.
+			 * This also means a poor Cumulative Layout Shift score because once the 
+			 * JavaScript takes over to enhance the experience, the Sky Nav menu 
+			 * collapses closed causing a layout shift.
+			 * 
+			 * For this demo implementation, the Sky Nav has two states (via a 
+       * `data-state` attribute on the body element):
+			 * - default: No JavaScript is available (initial render)
+			 * - ready: The Sky Nav JavaScript has initialized (Sky Nav JS updates the state)
+			 * 
+			 * Normally, these styles would be in the main stylesheet and would not 
+			 * need to be inlined. For the purposes of this demo, they override the
+       * @cloudfour/patterns Sky Nav menu styles.
+			 *
+			 * 1. Hide the menu during the 'default' state, this solves the poor 
+       *    Cumulative Layout Shift score. When the Sky Nav JavaScript initializes, 
+       *    it updates the state to 'ready' disabling this `display: none`.
+       * 2. The key to this technique is to use a `:target` pseudo-class to show 
+       *    the menu when the menu toggle link is clicked.
+			 */
 			@media (max-width: 39.999em) {
 				[data-state='default'] .c-sky-nav__menu-items {
-					display: none;
+					display: none; /* 1 */
 				}
 				[data-state='default'] .c-sky-nav__menu-items:target {
-					display: block;
+					display: block; /* 2 */
 				}
 			}
 		</style>
