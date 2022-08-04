@@ -1,5 +1,6 @@
 /**
- * This is a simplified version of the Sky Nav Menu for demo purposes
+ * This is a copy of the Sky Nav JavaScript with a few additions specifically
+ * for the demos.
  *
  * Create Sky Nav Menu
  *
@@ -12,34 +13,36 @@
  * @param toggleEl - the toggle button for the navigation
  */
 export const initSkyNav = (toggleEl: HTMLButtonElement) => {
-	const DISABLE_ANIMATION = false;
-	console.log('initSkyNav in action');
-
 	let navButton = toggleEl;
 
-	// @todo Add comment
+	// For the `:target` pseudo-class solution, the toggle is a link by default.
+	// Once this Sky Nav JS logic kicks in, we change the link to a button since
+	// using a button for this functionality is more semantic.
 	if (document.body.dataset.demo === 'target-pseudo-class') {
-		// Aria-expanded is ignored on anchor
+		// Create a  new button
 		const button = document.createElement('button');
+		// Copy all of the link classes over to the new button
 		toggleEl.classList.forEach((toggleElCssClass) =>
 			button.classList.add(toggleElCssClass)
 		);
+		// Copy over the contents of the link to the button
 		button.innerHTML = toggleEl.innerHTML;
+		// Swap the link for the button
 		toggleEl.replaceWith(button);
+		// Update the code to reference the new button as the nav button
 		navButton = button;
 	}
 
 	const menu = navButton.nextElementSibling as HTMLElement;
 	const navWrapper = navButton.closest('.js-sky-nav') as HTMLElement;
 	const largeScreenMediaQuery = window.matchMedia('(min-width: 40em)');
-	// @todo Is this needed for the demo?
 	const reducedMotionMediaQuery = window.matchMedia(
 		'(prefers-reduced-motion: reduce)'
 	);
 
-	// The Sky Nav component has inline synchronous JS logic to add an `loading`
-	// state to remove the layout shift at smaller viewports. That state no longer
-	// applies at this point since the Sky Nav JS has loaded & is ready to take over.
+	// By default, the Sky Nav begins with a 'default' state set in the
+	// server-rendered HTML. This below will update the Sky Nav state providing a
+	// CSS hook to manage changes in the UI once this Sky Nav JS has initialized.
 	navWrapper.dataset.state = 'ready';
 
 	/**
@@ -68,9 +71,7 @@ export const initSkyNav = (toggleEl: HTMLButtonElement) => {
 
 		navButton.setAttribute('aria-expanded', String(!isExpanded));
 
-		// If no animation, then I shouldn't need this
-		// @todo Do I need this for the demo?
-		if (reducedMotionMediaQuery.matches || DISABLE_ANIMATION) {
+		if (reducedMotionMediaQuery.matches) {
 			menu.hidden = isExpanded;
 			return;
 		}
