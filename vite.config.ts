@@ -6,6 +6,7 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
+				'layout-shift': resolve(__dirname, 'demo/layout-shift/index.html'),
 				'disclosure-widget': resolve(
 					__dirname,
 					'demo/disclosure-widget/index.html'
