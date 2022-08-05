@@ -11,6 +11,15 @@
 		/>
 		<style>
 			/**
+			 * A helper alert for demo purposes
+			 */
+			@media (max-width: 39.999em) {
+				.viewport-alert {
+					display: none;
+				}
+			}
+
+			/**
 			 * The @cloudfour/patterns Sky Nav is progressively enhanced; no JavaScript 
 			 * is assumed by default. This means the menu is rendered open initially.
 			 * This also means a poor Cumulative Layout Shift score because once the 
@@ -155,6 +164,16 @@
 			<div class="o-container o-container--pad">
 				<div class="o-container__content o-rhythm">
 					<h1>Synchronous inline script demo</h1>
+					<div class="c-alert viewport-alert">
+						<div class="c-alert__inner">
+							<div class="c-alert__content">
+								<p>
+									This demo is intended to be viewed at smaller viewport sizes;
+									resize your browser to see the demo in action.
+								</p>
+							</div>
+						</div>
+					</div>
 					<p>
 						Read Cloud Four's <a href="#todo">"TITLE" article</a> for demo
 						details.
