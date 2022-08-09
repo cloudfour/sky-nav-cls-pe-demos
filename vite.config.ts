@@ -15,6 +15,10 @@ export default defineConfig({
 					__dirname,
 					'demo/synchronous-inline-script/index.html'
 				),
+				'synchronous-inline-script-root': resolve(
+					__dirname,
+					'demo/synchronous-inline-script-root/index.html'
+				),
 				'target-pseudo-class': resolve(
 					__dirname,
 					'demo/target-pseudo-class/index.html'
