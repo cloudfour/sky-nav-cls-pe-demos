@@ -159,12 +159,6 @@
 					</nav>
 				</header>
 			</div>
-			<script>
-				// This line of JavaScript is the key to removing the layout shift for
-				// this technique. The CSS can hide the menu immediately removing the
-				// layout shift using the updated state value as the hook.
-				document.querySelector('.js-sky-nav').dataset.state = 'loading';
-			</script>
 		</div>
 		<main id="main" class="o-page__content">
 			<div class="o-container o-container--pad">
@@ -219,6 +213,14 @@
 				</div>
 			</div>
 		</main>
+		<script>
+			// This line of JavaScript is the key to removing the layout shift for
+			// this technique. The menu can quickly be hidden via CSS removing the
+			// layout shift using the updated state value as the hook.
+			// This script is just above the closing body tag because it is technically
+			// still render-blocking.
+			document.querySelector('.js-sky-nav').dataset.state = 'loading';
+		</script>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>
