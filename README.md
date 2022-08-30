@@ -1,6 +1,6 @@
-# Sky Nav Cumulative Layout Shift and Progressive Enhancement demos
+# Removing layout shift from a progressively enhanced burger menu demos
 
-Demos for the Sky Nav Cumulative Layout Shift + Progressive Enhancement article
+Demos for the "[Removing layout shift from a progressively enhanced burger menu](https://cloudfour.com/thinks/removing-layout-shift-from-a-progressively-enhanced-burger-menu/)" article
 
 ## Getting started
 
