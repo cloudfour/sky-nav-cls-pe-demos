@@ -85,22 +85,19 @@
 							</svg>
 						</a>
 					</div>
-					<nav class="c-sky-nav__menu" aria-labelledby="menu-label">
-						<h2 id="menu-label" class="u-hidden-visually">Main Menu</h2>
-						<!-- 
-							@see https://github.com/zachleat/details-utils
-						-->
-						<details-utils animate force-open="(min-width: 40em)" force-restore>
-							<details>
-								<summary
-									class="c-button c-sky-nav__menu-toggle js-sky-nav-menu-toggle"
-								>
-									<span class="c-button__content">
-										<span class="u-hidden-visually">Main</span>
-										Menu
-									</span>
-								</summary>
-								<ul id="sky-nav" class="c-sky-nav__menu-items" role="list">
+					<!-- 
+						@see https://github.com/zachleat/details-utils
+					-->
+					<details-utils animate force-open="(min-width: 40em)" force-restore>
+						<details>
+							<summary id="toggle" class="c-button c-sky-nav__menu-toggle">
+								<span class="c-button__content">
+									<span class="u-hidden-visually">Main</span>
+									Menu
+								</span>
+							</summary>
+							<nav class="c-sky-nav__menu" aria-labelledby="toggle">
+								<ul class="c-sky-nav__menu-items" role="list">
 									<li class="c-sky-nav__menu-item">
 										<a class="c-sky-nav__menu-action" href="#">
 											<span class="c-sky-nav__menu-label"> What We Do </span>
@@ -132,9 +129,9 @@
 										</a>
 									</li>
 								</ul>
-							</details>
-						</details-utils>
-					</nav>
+							</nav>
+						</details>
+					</details-utils>
 				</header>
 			</div>
 		</div>
