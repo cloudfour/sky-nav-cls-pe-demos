@@ -27,24 +27,27 @@
 			}
 
 			/*
-			 * Normally, these styles would be in the main stylesheet and would not 
+			 * Normally, these styles would be in the main stylesheet and would not
 			 * need to be inlined. For the demo's purposes, they live here.
 			 */
 
-			/* 
-			 * 1. The design doesn't call for the arrow marker rendered in Safari 
+			/*
+			 * 1. The design doesn't call for the arrow marker rendered in Safari
 			 */
 			details > summary::-webkit-details-marker {
 				display: none; /* 1 */
 			}
 
 			/**
-			 * 1. At larger viewports, we don't need the details container to do anything
+			 * 1. Make sure nav content matches original design at larger viewports
 			 */
 			@media (min-width: 40em) {
-				details-utils,
-				details {
-					display: contents; /* 1 */
+				details-utils {
+					width: 100%; /* 1 */
+				}
+				details,
+				.c-sky-nav__menu-items {
+					height: 100%; /* 1 */
 				}
 			}
 		</style>
