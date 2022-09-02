@@ -40,7 +40,7 @@ export const initSkyNav = (toggleEl: HTMLButtonElement) => {
 		'(prefers-reduced-motion: reduce)'
 	);
 
-	// By default, the Sky Nav begins with a 'default' state set in the
+	// By default, the Sky Nav begins with a 'no-js' state set in the
 	// server-rendered HTML. This below will update the Sky Nav state providing a
 	// CSS hook to manage changes in the UI once this Sky Nav JS has initialized.
 	navWrapper.dataset.state = 'ready';

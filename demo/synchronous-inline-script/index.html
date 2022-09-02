@@ -35,7 +35,7 @@
 			 * 
 			 * For this demo implementation, the Sky Nav has three states (via a 
 			 * `data-state` attribute on the Sky Nav `.js-sky-nav` element):
-			 * - default: No JavaScript is available (initial render)
+			 * - no-js: No JavaScript is available 
 			 * - loading: JavaScript enabled, Sky Nav JavaScript hasn’t initialized 
 			 *						(state is updated via inline script)
 			 * - ready: The Sky Nav JavaScript has initialized (Sky Nav JS updates the state)
@@ -53,7 +53,7 @@
 				 * 3. The Sky Nav JavaScript has initialized, reset the `display`. The Sky
 				 * 		Nav JavaScript now toggles the menu open/closed.
 				 */
-				[data-state='default'] .c-sky-nav__menu-items {
+				[data-state='no-js'] .c-sky-nav__menu-items {
 					display: block; /* 1 */
 				}
 				[data-state='loading'] .c-sky-nav__menu-items {
@@ -69,7 +69,7 @@
 				 * 1. The button toggle is not needed if JS is disabled.
 				 * 2. During the 'loading' and 'ready' state, show the button
 				 */
-				[data-state='default'] .c-sky-nav__menu-toggle {
+				[data-state='no-js'] .c-sky-nav__menu-toggle {
 					display: none; /* 1 */
 				}
 				[data-state='loading'] .c-sky-nav__menu-toggle,
@@ -81,7 +81,7 @@
 	</head>
 	<body class="o-page" data-demo="synchronous-inline-script">
 		<div class="o-page__header t-dark">
-			<div class="c-sky-nav js-sky-nav" data-state="default">
+			<div class="c-sky-nav js-sky-nav" data-state="no-js">
 				<a class="c-button c-sky-nav__skip" href="#main">
 					<span class="c-button__content"> Skip to main content </span>
 				</a>

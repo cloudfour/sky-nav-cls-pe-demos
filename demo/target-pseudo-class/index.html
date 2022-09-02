@@ -35,24 +35,24 @@
 			 * 
 			 * For this demo implementation, the Sky Nav has two states (via a 
 			 * `data-state` attribute on the Sky Nav `.js-sky-nav` element):
-			 * - default: No JavaScript is available (initial render)
+			 * - no-js: No JavaScript is available 
 			 * - ready: The Sky Nav JavaScript has initialized (Sky Nav JS updates the state)
 			 * 
 			 * Normally, these styles would be in the main stylesheet and would not 
 			 * need to be inlined. For the purposes of this demo, they override the
 			 * @cloudfour/patterns Sky Nav menu styles.
 			 *
-			 * 1. Hide the menu during the 'default' state, this solves the poor 
+			 * 1. Hide the menu during the 'no-js' state, this solves the poor 
 			 *    Cumulative Layout Shift score. When the Sky Nav JavaScript initializes, 
 			 *    it updates the state to 'ready' disabling this `display: none`.
 			 * 2. The key to this technique is to use a `:target` pseudo-class to show 
 			 *    the menu when the menu toggle link is clicked.
 			 */
 			@media (max-width: 39.999em) {
-				[data-state='default'] .c-sky-nav__menu-items {
+				[data-state='no-js'] .c-sky-nav__menu-items {
 					display: none; /* 1 */
 				}
-				[data-state='default'] .c-sky-nav__menu-items:target {
+				[data-state='no-js'] .c-sky-nav__menu-items:target {
 					display: block; /* 2 */
 				}
 			}
@@ -60,7 +60,7 @@
 	</head>
 	<body class="o-page" data-demo="target-pseudo-class">
 		<div class="o-page__header t-dark">
-			<div class="c-sky-nav js-sky-nav" data-state="default">
+			<div class="c-sky-nav js-sky-nav" data-state="no-js">
 				<a class="c-button c-sky-nav__skip" href="#main">
 					<span class="c-button__content"> Skip to main content </span>
 				</a>
